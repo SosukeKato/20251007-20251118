@@ -16,16 +16,9 @@ public class SceneController : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     void Update()
-    {
-        
-    }
-
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         
     }
