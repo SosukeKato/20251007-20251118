@@ -7,6 +7,9 @@ public class AudioController : MonoBehaviour
 {
     static AudioController instance { get; set; }
 
+    [SerializeField]
+    AudioSource _bGMSource;
+
     void Start()
     {
         if (instance == null)
@@ -29,6 +32,6 @@ public class AudioController : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-
+        _bGMSource.Stop();
     }
 }
