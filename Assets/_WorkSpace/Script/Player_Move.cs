@@ -21,8 +21,8 @@ public class Player_Move : MonoBehaviour
     }
     void Update()
     {
-       
-        if (Input.GetMouseButton(0)&&_isgrounded == true)
+
+        if (Input.GetMouseButton(0) && _isgrounded == true)
         {
             _time += Time.deltaTime;
             if (_time > _Maxjumptime)
@@ -30,21 +30,29 @@ public class Player_Move : MonoBehaviour
                 Debug.Log("最大");
                 _time = _Maxjumptime;
             }
-            Debug.Log( _time +"秒ジャンプ溜めてます");
+            Debug.Log(_time + "秒ジャンプ溜めてます");
         }
         if (Input.GetMouseButtonUp(0))
         {
-                _Rb2D.AddForce(Vector2.up * _jumpforce * _time );
+            _Rb2D.AddForce(Vector2.up * _jumpforce * _time);
             Debug.Log(Vector2.up * _jumpforce * _time);
-           // Debug.Log(Vector2.up * _jumpforce * _time);
-                _isgrounded = false;
-                _time = 0;
+            _isgrounded = false;
+            _time = 0;
         }
         if (!_isgrounded)
         {
             float gravity = Time.deltaTime * _Rb2D.gravityScale;
             _Rb2D.velocity += Vector2.down * gravity;
         }
-       Debug.Log(_isgrounded);
+        Vector3 mousepos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        // 画面上のマウス座標を、ゲーム内のワールド座標に変換して取得する
+        if (mousepos.x > _player.position.x)
+        {
+            _player.localScale = new Vector3(-1, 1, 1);
+        }
+        if (mousepos.x < _player.position.x)
+        {
+            _player.localScale = new Vector3(1, 1, 1);
+        }
     }
 }
