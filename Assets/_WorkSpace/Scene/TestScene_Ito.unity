@@ -357,10 +357,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 1128712949}
-  _time: 0
-  _isgrounded: 0
-  _jumpforce: 500
-  _Maxjumptime: 5
+  _jumpforce: 1000
+  _Maxjumptime: 1
 --- !u!212 &1128712948
 SpriteRenderer:
   m_ObjectHideFlags: 0
