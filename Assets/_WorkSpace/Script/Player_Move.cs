@@ -8,7 +8,7 @@ public class Player_Move : MonoBehaviour
     public float _jumpforce = 0.01f;
     [SerializeField] float _JumpingMoveSpeed = 10;
     [SerializeField] float _Maxjumptime =3;
-    [SerializeField] float _deadzone = 1;
+    [SerializeField] float _deadzone = 1;//playerの真上の判定を取るための変数
     Rigidbody2D _Rb2D;
     private float _direction = 0;
     void Start()
@@ -28,7 +28,7 @@ public class Player_Move : MonoBehaviour
         Vector3 mousepos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         // 画面上のマウス座標をゲーム内のワールド座標に変換して取得する
 
-        float dx = mousepos.x - _player.position.x;
+        float dx = mousepos.x - _player.position.x;//プレイヤーとマウスの距離
         if (dx > 0)//プレイヤーが右を向いていたら
         {
             _player.localScale = new Vector3(-1, 1, 1);
@@ -39,7 +39,7 @@ public class Player_Move : MonoBehaviour
             _player.localScale = new Vector3(1, 1, 1);
             _direction = -1;
         }
-        if (Mathf.Abs(dx) < _deadzone)
+        if (Mathf.Abs(dx) < _deadzone)//マウスがプレイヤーの真上にあったら
         {
             _direction = 0;
         }
