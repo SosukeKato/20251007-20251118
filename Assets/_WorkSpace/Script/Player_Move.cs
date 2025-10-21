@@ -15,16 +15,23 @@ public class Player_Move : MonoBehaviour
     {
         _Rb2D = GetComponent<Rigidbody2D>();
     }
-    void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Ground")
         {
             _isgrounded = true;
         }
     }
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+        {
+            _isgrounded = false;
+        }
+    }
     void Update()
     {
-
+        Debug.Log(_isgrounded);
         Vector3 mousepos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         // 画面上のマウス座標をゲーム内のワールド座標に変換して取得する
 
@@ -57,7 +64,6 @@ public class Player_Move : MonoBehaviour
         {
             _Rb2D.AddForce(Vector2.up * _jumpforce * _time + Vector2.right * _direction * _JumpingMoveSpeed);
             Debug.Log(Vector2.up * _jumpforce * _time);
-            _isgrounded = false;
             _time = 0;
         }
         if (!_isgrounded)
