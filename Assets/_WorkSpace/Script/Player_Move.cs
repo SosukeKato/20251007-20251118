@@ -7,8 +7,8 @@ public class Player_Move : MonoBehaviour
     private bool _isgrounded = false;
     private bool _isfall = false;
     public float _jumpforce = 0.01f;
-    [SerializeField] float _JumpingMoveSpeed = 10;
-    [SerializeField] float _Maxjumptime =3;
+    [Header("ジャンプ中の移動スピード"),SerializeField] float _JumpingMoveSpeed = 10;
+    [Header("ジャンプの最大時間"),SerializeField] float _Maxjumptime =3;
     [SerializeField] float _deadzone = 1;//playerの真上の判定を取るための変数
     Rigidbody2D _Rb2D;
     private float _direction = 0;
