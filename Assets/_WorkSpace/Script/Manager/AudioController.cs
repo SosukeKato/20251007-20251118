@@ -8,7 +8,25 @@ public class AudioController : MonoBehaviour
     [SerializeField]
     AudioSource _bGMSource;
 
-    void Start()
+    #region BGMClip
+    [SerializeField]
+    AudioClip _titleBGM;
+    [SerializeField]
+    AudioClip _inGameBGM;
+    [SerializeField]
+    AudioClip _gOBGM;
+    [SerializeField]
+    AudioClip _gCBGM;
+    #endregion
+
+    #region SEClip
+    [SerializeField]
+    AudioClip _jumpSE;
+    [SerializeField]
+    AudioClip _isGroundSE;
+    #endregion
+
+    void Awake()
     {
         if (instance == null)
         {
@@ -23,6 +41,11 @@ public class AudioController : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
+    void Start()
+    {
+        
+    }
+
     void Update()
     {
         
@@ -31,5 +54,25 @@ public class AudioController : MonoBehaviour
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         _bGMSource.Stop();
+        if (SceneManager.GetActiveScene().name == "00_TitleScene")
+        {
+            _bGMSource.clip = _titleBGM;
+            _bGMSource.Play();
+        }
+        if (SceneManager.GetActiveScene().name == "01_PlayScene")
+        {
+            _bGMSource.clip = _inGameBGM;
+            _bGMSource.Play();
+        }
+        if (SceneManager.GetActiveScene().name == "02_GameOverScene")
+        {
+            _bGMSource.clip = _gOBGM;
+            _bGMSource.Play();
+        }
+        if (SceneManager.GetActiveScene().name == "03_GameCearScene")
+        {
+            _bGMSource.clip = _gCBGM;
+            _bGMSource.Play();
+        }
     }
 }
