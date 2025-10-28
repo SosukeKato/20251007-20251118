@@ -8,16 +8,16 @@ public class AudioController : MonoBehaviour
     [SerializeField]
     AudioSource _bGMSource;
 
-    //#region BGMClip
-    //[SerializeField]
-    //AudioClip _titleBGM;
-    //[SerializeField]
-    //AudioClip _inGameBGM;
-    //[SerializeField]
-    //AudioClip _gOBGM;
-    //[SerializeField]
-    //AudioClip _gCBGM;
-    //#endregion
+    #region BGMClip
+    [SerializeField]
+    AudioClip _titleBGM;
+    [SerializeField]
+    AudioClip _inGameBGM;
+    [SerializeField]
+    AudioClip _gOBGM;
+    [SerializeField]
+    AudioClip _gCBGM;
+    #endregion
 
     void Awake()
     {
