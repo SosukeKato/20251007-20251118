@@ -19,6 +19,13 @@ public class AudioController : MonoBehaviour
     AudioClip _gCBGM;
     #endregion
 
+    #region SEClip
+    [SerializeField]
+    AudioClip _jumpSE;
+    [SerializeField]
+    AudioClip _isGroundSE;
+    #endregion
+
     void Awake()
     {
         if (instance == null)
