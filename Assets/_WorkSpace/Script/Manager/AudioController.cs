@@ -8,7 +8,18 @@ public class AudioController : MonoBehaviour
     [SerializeField]
     AudioSource _bGMSource;
 
-    void Start()
+    //#region BGMClip
+    //[SerializeField]
+    //AudioClip _titleBGM;
+    //[SerializeField]
+    //AudioClip _inGameBGM;
+    //[SerializeField]
+    //AudioClip _gOBGM;
+    //[SerializeField]
+    //AudioClip _gCBGM;
+    //#endregion
+
+    void Awake()
     {
         if (instance == null)
         {
@@ -21,6 +32,11 @@ public class AudioController : MonoBehaviour
         }
 
         SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void Start()
+    {
+        
     }
 
     void Update()
